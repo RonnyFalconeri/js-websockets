@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Websocket</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+
+<body>
+
+    <h1>JavaScript Websocket</h1>
+    <p>A template for creating a webserver with websockets.</p>
+    
+    <input id="switch" type="checkbox"><label for="switch">Control Switch</label>
+    
+    <script>
+        $(document).ready(function() {
+           
+            $("#switch").change(function(){
+
+                var state = $("#switch").is(":checked");
+                var socket = io();
+
+                socket.emit("switcher", state);
+                
+            });
+            
+        });
+    </script>
+    
+</body>
+
+</html>
